@@ -104,9 +104,9 @@ public class FolderPickerActivity extends SyncthingActivity
         }
 
         Boolean prefUseRoot = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.PREF_USE_ROOT, false);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && !prefUseRoot) {
-            Toast.makeText(this, R.string.kitkat_external_storage_warning, Toast.LENGTH_LONG)
-                    .show();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !prefUseRoot) {
+    Toast.makeText(this, R.string.external_storage_warning, Toast.LENGTH_LONG).show();
+}
         }
     }
 
@@ -118,7 +118,7 @@ public class FolderPickerActivity extends SyncthingActivity
     @SuppressLint("NewApi")
     private void populateRoots() {
         ArrayList<File> roots = new ArrayList<>();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             roots.addAll(Arrays.asList(getExternalFilesDirs(null)));
             roots.remove(getExternalFilesDir(null));
         }
